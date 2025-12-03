@@ -173,8 +173,8 @@
 
         .birthday-image {
             width: 300px;
-            height: 300px;
-            border-radius: 50%;
+            height: 400px;
+            border-radius: 20px;
             object-fit: cover;
             border: 8px solid transparent;
             background: linear-gradient(white, white) padding-box,
@@ -186,7 +186,7 @@
 
         @keyframes rotateIn {
             from {
-                transform: rotate(-180deg) scale(0);
+                transform: rotate(-10deg) scale(0.9);
                 opacity: 0;
             }
             to {
@@ -196,7 +196,7 @@
         }
 
         .birthday-image:hover {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.05) rotate(2deg);
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
         }
 
@@ -210,7 +210,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            border-radius: 50%;
+            border-radius: 20px;
             border: 2px dashed rgba(255, 255, 255, 0.7);
             top: 0;
             left: 0;
@@ -430,7 +430,7 @@
             
             .birthday-image {
                 width: 200px;
-                height: 200px;
+                height: 267px;
             }
             
             .wishes-grid {
@@ -658,6 +658,147 @@
             font-size: 0.9rem;
             color: #333;
         }
+
+        /* Additional features */
+        .photo-gallery {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .gallery-title {
+            font-size: 1.8rem;
+            color: #764ba2;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gallery-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .gallery-item {
+            width: 150px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .quote-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .quote-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .quote-author {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .surprise-button {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .surprise-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .surprise-content {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .surprise-content.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .surprise-image {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .surprise-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Lightbox for gallery */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .lightbox.show {
+            display: flex;
+        }
+
+        .lightbox-image {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -674,7 +815,7 @@
             <div class="main-card">
                 <div class="image-section">
                     <div class="image-frame">
-                        <img src="https://picsum.photos/seed/umainanoor/300/300.jpg" alt="Umaina Noor" class="birthday-image" id="birthdayImage">
+                        <img src="\image.jpg" alt="Umaina Noor" class="birthday-image" id="birthdayImage">
                     </div>
                 </div>
 
@@ -685,22 +826,8 @@
                         <span>💝</span>
                     </h2>
                     <p class="message-text">
-                        Dear Umaina Noor, on this beautiful day, I want to wish you the happiest birthday ever! 🌟 
-                        You are an incredible person who brings so much joy and light into the world. Your smile 
-                        can brighten up the darkest days, and your kindness touches everyone around you. 
-
-                        As you celebrate another year of amazing life, I hope all your dreams come true and you 
-                        find success in everything you do. May this year bring you endless opportunities, 
-                        unforgettable moments, and countless reasons to smile. You deserve all the happiness 
-                        in the world, and I hope this birthday is just the beginning of an extraordinary year ahead.
-
-                        Remember that you are strong, beautiful, and capable of achieving anything you set your 
-                        mind to. Keep shining bright like the star you are, and never stop believing in yourself. 
-                        Here's to many more years of laughter, love, and amazing adventures! 🎈🎁🎊
-
-                        Wishing you a day filled with love, a year filled with joy, and a lifetime filled with 
-                        happiness. Happy Birthday, wonderful Umaina! May all your wishes come true today and always! 
-                        🌈✨🎂
+                        Hi Assalam o Alaikum kia hal ha umeed krta hon khariat say ho ge aap sorry to bother you and disturb you. 1st of all Happy birthday to you. Allah say dua ha mere k aap ka na sirf aaj ka din blkay pura saal he best guzray. I know k aap ke life mein jitney problems or jitney issues hein un ko mein imagine bhe ni kr skta but still mere allah pak say dua ha k allah pak aap ke life k issues or problms ko hal kray or mama ko sehat dein ameen sum ameen. Allah say dua ha k aap ko aap ke life mein wo milay jis say aapna sirf kush ho jao blkay allah k bhe kareeb aao or aap ke duniya or akhriyat donon behtr ho or us k sath sath aap kush bhe ho jao or mama bhe kush hon ameen sum ameen. Or han I just wanna say thank you for every thing you have done for me thank you very mush. I didn't deserve anything but U did everything for me so us k liyay thank you so much. Thank you so mush hr us pal k liyay jo aap nay meray sath guzara, thank you so much hr us cheeze k liyay jo aap nay mujy dee.
+                        And at last I just wanna say sorry for everything I did wrong and I am really sorry for all that. I know k sorry say kuch bhe thek i ho skta but I just wanna say sorry Q K mein ab wo sab thek ni kr skta jo kaam mein kr skta hon wo ye ha k mein next kabe aap ko tang na kron ya aisa kuch na kron jis say aap disturb ho ya aao ke life mein koi kisi kisam ke koi problem ya issue aay thank you for everything
                     </p>
                 </div>
 
@@ -725,6 +852,32 @@
                         <div class="wish-title">Dreams Come True</div>
                         <div>May all your dreams and wishes come true!</div>
                     </div>
+                    <div class="wish-card" onclick="createFireworks(event)">
+                        <div class="wish-icon">🌈</div>
+                        <div class="wish-title">Colorful Journey</div>
+                        <div>May your life's journey be colorful and bright!</div>
+                    </div>
+                    <div class="wish-card" onclick="createFireworks(event)">
+                        <div class="wish-icon">🦋</div>
+                        <div class="wish-title">New Beginnings</div>
+                        <div>May this year bring beautiful new beginnings!</div>
+                    </div>
+                </div>
+
+                <div class="quote-section">
+                    <p class="quote-text">"The more you praise and celebrate your life, the more there is in life to celebrate."</p>
+                    <p class="quote-author">- Oprah Winfrey</p>
+                </div>
+
+                <button class="surprise-button" onclick="toggleSurprise()">🎁 Click for a Special Surprise! 🎁</button>
+                
+                <div class="surprise-content" id="surpriseContent">
+                    <img src="\cake.jpg" alt="Birthday Cake" class="surprise-image">
+                    <p class="surprise-text">
+                        May your birthday be the start of a year filled with good luck, good health, and much happiness. 
+                        Remember, you are special and you deserve the best! I hope this year brings you closer to your dreams 
+                        and fills your life with unforgettable moments. Happy Birthday, Umaina! 🎂🎈🎉
+                    </p>
                 </div>
 
                 <div class="message-input-section">
@@ -769,6 +922,12 @@
         <div class="messages-content" id="messagesContent">
             <div class="no-messages">No messages yet.</div>
         </div>
+    </div>
+
+    <!-- Lightbox for gallery -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img src="" alt="Gallery Image" class="lightbox-image" id="lightboxImage">
     </div>
 
     <script>
@@ -948,6 +1107,46 @@
             }
         });
 
+        // Toggle surprise content
+        function toggleSurprise() {
+            const surpriseContent = document.getElementById('surpriseContent');
+            surpriseContent.classList.toggle('show');
+            
+            if (surpriseContent.classList.contains('show')) {
+                // Create celebration effect
+                for (let i = 0; i < 15; i++) {
+                    setTimeout(() => {
+                        createSparkle(
+                            Math.random() * window.innerWidth,
+                            Math.random() * window.innerHeight
+                        );
+                    }, i * 100);
+                }
+            }
+        }
+
+        // Lightbox functionality
+        const galleryImages = [
+            'https://picsum.photos/seed/umainanoor/800/1067.jpg',
+            'https://picsum.photos/seed/umainanoor2/800/1067.jpg',
+            'https://picsum.photos/seed/umainanoor3/800/1067.jpg',
+            'https://picsum.photos/seed/umainanoor4/800/1067.jpg',
+            'https://picsum.photos/seed/umainanoor5/800/1067.jpg',
+            'https://picsum.photos/seed/umainanoor6/800/1067.jpg'
+        ];
+
+        function openLightbox(index) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            
+            lightboxImage.src = galleryImages[index];
+            lightbox.classList.add('show');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('show');
+        }
+
         // Music player functionality
         let isPlaying = false;
         const musicToggle = document.getElementById('musicToggle');
@@ -964,35 +1163,6 @@
             }
             isPlaying = !isPlaying;
         });
-
-        // Countdown timer
-        function updateCountdown() {
-            // Set the birthday date (month is 0-indexed, so 0 = January)
-            const birthday = new Date();
-            birthday.setFullYear(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-            
-            // If birthday has passed this year, set it to next year
-            if (birthday < new Date()) {
-                birthday.setFullYear(birthday.getFullYear() + 1);
-            }
-            
-            const now = new Date();
-            const diff = birthday - now;
-            
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call
 
         // Check for new messages on page load
         window.addEventListener('load', () => {
@@ -1021,8 +1191,15 @@
 
         // Add click effect anywhere on page
         document.addEventListener('click', (e) => {
-            if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'TEXTAREA' && !e.target.closest('.admin-panel') && !e.target.closest('.messages-container')) {
+            if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'TEXTAREA' && !e.target.closest('.admin-panel') && !e.target.closest('.messages-container') && !e.target.closest('.lightbox')) {
                 createSparkle(e.clientX, e.clientY);
+            }
+        });
+
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
             }
         });
     </script>
